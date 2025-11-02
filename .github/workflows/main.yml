@@ -27,3 +27,11 @@ jobs:
 
       - name: Executando os testes
         run: npm run test:report-compact
+
+      - name: Upload mochawesome report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: |
+            mochawesome-report/**

@@ -1,0 +1,32 @@
+{
+  "name": "pgats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run > execucao-logs.docx",
+    "test:report:run": "npx cypress run --reporter cypress-mochawesome-reporter --reporter-options reportDir=mochawesome-report,overwrite=false,html=false,json=true",
+  "test:report:merge": "node scripts/merge-mochawesome.js",
+    "test:report:html": "npx marge mochawesome-report/mochawesome.json -f report -o mochawesome-report",
+  "test:report:pdf": "node scripts/generate-report-pdf-compact.js mochawesome-report/report.pdf",
+  "test:report:pdf-compact": "node scripts/generate-report-pdf-compact.js mochawesome-report/report-compact.pdf",
+    "test:report": "npm run test:report:run && npm run test:report:pdf",
+    "test:report-compact": "npm run test:report:run && npm run test:report:pdf-compact"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chance": "^1.1.13",
+    "cypress": "^13.7.3"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.3.0",
+    "puppeteer": "^24.27.0"
+  }
+}

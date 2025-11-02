@@ -1,0 +1,6 @@
+node_modules
+package-lock.json
+screenshots
+.env
+mochawesome-report/index.html
+mochawesome-report/report-compact.pdf

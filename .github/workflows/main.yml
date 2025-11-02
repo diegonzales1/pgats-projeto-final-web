@@ -29,9 +29,11 @@ jobs:
         run: npm run test:report-compact
 
       - name: Upload mochawesome report
-        if: always()
+        if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
-          name: mochawesome-report
+          name: relatorio
           path: |
+            cypress/screenshots
+            cypress/videos
             mochawesome-report/**

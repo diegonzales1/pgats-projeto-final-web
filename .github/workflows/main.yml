@@ -26,26 +26,7 @@ jobs:
         run: npm install
 
       - name: Executando os testes
-        run: npm run test:report:run
-
-  gerar-relatorio:
-    runs-on: ubuntu-latest
-    needs: e2e-tests
-
-    steps:
-
-      - uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22.x'
-
-      - name: Instalando dependências
-        run: npm install
-
-      - name: Gerando relatório em PDF 
-        run: npm run test:report:pdf-compact
+        run: npm run test:report-compact
 
       - name: Upload mochawesome report
         if: ${{ !cancelled() }}
